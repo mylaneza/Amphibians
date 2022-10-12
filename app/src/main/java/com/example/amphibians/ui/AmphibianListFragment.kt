@@ -36,8 +36,10 @@ class AmphibianListFragment : Fragment() {
     ): View? {
         val binding = FragmentAmphibianListBinding.inflate(inflater)
         // TODO: call the view model method that calls the amphibians api
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        viewModel.getAmphibianList()
         binding.recyclerView.adapter = AmphibianListAdapter(AmphibianListener { amphibian ->
             viewModel.onAmphibianClicked(amphibian)
             findNavController()
